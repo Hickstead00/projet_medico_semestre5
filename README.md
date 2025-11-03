@@ -81,5 +81,20 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 - **Ajout** sur la liste des consultations du lien qui envoie sur la page de suppression associé à la consultation
 
 
+**QUESTION 9 (AMGHAR Gassien)** :
+
+- **Créations** de la page pour modifier les consultations
+
+- **Ajout** de la vue pour modifier les consultations
+
+- **Ajout** d'un template pour la modification d'une consultation
+
+- **Ajout** d'un bouton pour modifier une consultation directement sur la page de toutes les consultations. 
+
+
+
+
+
+
 
 

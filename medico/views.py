@@ -40,3 +40,19 @@ def effacer_consultation(request,consultation_id):
         consultation.delete()
         return redirect("consultations")
     return render(request,"medico/effacer_consultation.html",{"consultation":consultation})
+
+def check_save(form):
+    if form.is_valid():
+        consultation = form.save(commit=False)
+        consultation.save()
+    return consultation.id
+
+def modifier_consultation(request, consultation_id):
+    consultation = get_object_or_404(Consultation,pk=consultation_id)
+    if request.method == "POST":
+        form = ConsultationForm(request.POST, instance=consultation)
+        id = check_save(form)
+        return redirect("consultation", consultation_id=id)
+    else:
+        form = ConsultationForm(instance=consultation)
+    return render(request, "medico/modifier_consultation.html", {"form" : form ,"button_label": "Modifier"})

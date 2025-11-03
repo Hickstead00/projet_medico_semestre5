@@ -18,6 +18,7 @@
             <td>{{consultation.description|truncatechars:20}}</td>
             <td><a href={% url 'consultation' consultation.id %}>Fiche détaillée du patient</a></td>
             <td><a href={% url 'effacer_consultation' consultation.id %}>Effacer</a></td>
+            <td><a href={% url 'changer_consultation' consultation.id %}>Modifier</a></td>
 
         </tr>
     {% endfor %}
