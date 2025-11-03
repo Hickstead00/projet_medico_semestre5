@@ -6,13 +6,13 @@
     <title>Effacer une consultation</title>
 </head>
 <body>
-    <h1>Voulez-vous vraiment effacer la consultation"{{consultation.patient_nom}}{{consultation.patient_prenom}}" ?</h1>
+    <h1>Voulez-vous vraiment effacer la consultation"{{consultation.patient_nom}}  {{consultation.patient_prenom}}" ?</h1>
     <ul>
         <li><b>Nom : </b>{{consultation.patient_nom}}</li>
         <li><b>Prenom : </b>{{consultation.patient_prenom}}</li>
         <li><b>Genre : </b>{{consultation.patient_genre}}</li>
         <li><b>Date : </b>{{consultation.date_consultation}}</li>
-        <li><b>Description : </b>{{consultation.patient_}}</li>
+        <li><b>Description : </b>{{consultation.description}}</li>
     </ul>
     <form method="POST">
         {% csrf_token %}
