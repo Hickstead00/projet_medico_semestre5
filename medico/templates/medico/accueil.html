@@ -1,0 +1,34 @@
+{% extends "medico/base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">Bienvenue sur Medico !</h1>
+    <p class="lead">Application simple de gestion de consultations.</p>
+
+    <div class="mt-4">
+        <a class="btn btn-primary mx-2" href="{% url 'consultations' %}">Voir toutes les consultations</a>
+        <a class="btn btn-info mx-2" href="{% url 'nouvelle_consultation' %}">Nouvelle consultation</a>
+        <a class="btn btn-secondary mx-2" href="{% url 'about' %}">À propos</a>
+    </div>
+</div>
+
+{% if dernieres_consultations %}
+<div class="mt-5 text-center">
+    <h3>Dernières consultations enregistrées</h3>
+    <ul class="list-group">
+        {% for c in dernieres_consultations %}
+            <li class="list-group-item">
+                {{ c.patient_prenom }} {{ c.patient_nom }} - {{ c.date_consultation }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<div class="mt-5 text-center">
+  <h3>Dernières consultations</h3>
+  <p class="text-muted">Aucune consultation pour le moment ...</p>
+</div>
+{% endif %}
+{% endblock %}

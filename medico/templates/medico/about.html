@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> About </title>
-</head>
-<body>
-    <h1> Bienvenue sur l'application Medico</h1>
+{% extends "medico/base.html" %}
 
+{% block title %}À propos{% endblock %}
 
-    <p> C'est une application de gestions de consultations médicales et d'ordonnances. </p>
-</body>
-</html>
+{% block content %}
+<div class="container mt-4 text-center">
+    <h1 class="mb-4">À propos de Medico :</h1>
+    <p>Medico est une application Django simple pour la gestion des consultations médicales.</p>
+    <p>Projet réalisé pour l’Université d’Orléans dans le cadre de l'UE Framework Web.</p>
+</div>
+{% endblock %}

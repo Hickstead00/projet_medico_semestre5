@@ -10,6 +10,10 @@ from medico.forms import *
 def about(request):
     return render(request, "medico/about.html")
 
+def accueil(request):
+    dernieres_consultations = Consultation.objects.order_by('-date_consultation')[:5]
+    return render(request, "medico/accueil.html", {"dernieres_consultations": dernieres_consultations})
+
 def consultation(request, consultation_id):
     try:
         consultation = Consultation.objects.get(pk=consultation_id)
@@ -47,7 +51,7 @@ def check_save(form):
         consultation.save()
     return consultation.id
 
-def modifier_consultation(request, consultation_id):
+def changer_consultation(request, consultation_id):
     consultation = get_object_or_404(Consultation,pk=consultation_id)
     if request.method == "POST":
         form = ConsultationForm(request.POST, instance=consultation)
@@ -55,4 +59,4 @@ def modifier_consultation(request, consultation_id):
         return redirect("consultation", consultation_id=id)
     else:
         form = ConsultationForm(instance=consultation)
-    return render(request, "medico/modifier_consultation.html", {"form" : form ,"button_label": "Modifier"})
+    return render(request, "medico/changer_consultation.html", {"form" : form ,"button_label": "Modifier"})

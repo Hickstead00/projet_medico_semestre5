@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toutes les consultations</title>
-</head>
-<body>
-    <table>
-        {% for consultation in all_consultations %}
-        
-        <tr>
-            <td>{{consultation.patient_nom}}</td>
-            <td>{{consultation.patient_prenom}}</td>
-            <td>{{consultation.patient_genre}}</td>
-            <td>{{consultation.patient_age}}</td>
-            <td>{{consultation.date_consultation}}</td>
-            <td>{{consultation.description|truncatechars:20}}</td>
-            <td><a href={% url 'consultation' consultation.id %}>Fiche détaillée du patient</a></td>
-            <td><a href={% url 'effacer_consultation' consultation.id %}>Effacer</a></td>
-            <td><a href={% url 'changer_consultation' consultation.id %}>Modifier</a></td>
+{% extends "medico/base.html" %}
+{% load django_bootstrap5 %}
 
+{% block title %}Consultations{% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Liste des consultations</h2>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Âge</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
         </tr>
-    {% endfor %}
-    </table>
-    
-</body>
-</html>
+    </thead>
+    <tbody>
+        {% for c in all_consultations %}
+            <tr>
+                <td>{{ c.patient_nom }}</td>
+                <td>{{ c.patient_prenom }}</td>
+                <td>{{ c.patient_age }}</td>
+                <td>{{ c.date_consultation }}</td>
+                <td>{{ c.description|truncatechars:20 }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{% url 'consultation' c.id %}">Voir</a>
+                    <a class="btn btn-sm btn-warning" href="{% url 'changer_consultation' c.id %}">Modifier</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'effacer_consultation' c.id %}">Supprimer</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Aucune consultation disponible.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

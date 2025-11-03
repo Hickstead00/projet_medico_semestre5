@@ -1,24 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Effacer une consultation</title>
-</head>
-<body>
-    <h1>Voulez-vous vraiment effacer la consultation"{{consultation.patient_nom}}  {{consultation.patient_prenom}}" ?</h1>
-    <ul>
-        <li><b>Nom : </b>{{consultation.patient_nom}}</li>
-        <li><b>Prenom : </b>{{consultation.patient_prenom}}</li>
-        <li><b>Genre : </b>{{consultation.patient_genre}}</li>
-        <li><b>Date : </b>{{consultation.date_consultation}}</li>
-        <li><b>Description : </b>{{consultation.description}}</li>
-    </ul>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit" name="delete">Effacer</button>
-    </form>
-    <p><a href={% url "consultations" %}>Retour à la liste des livres</a></p>
-    
-</body>
-</html>
+{% extends "medico/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Effacer une consultation{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="card-title text-danger mb-3">
+                    Voulez-vous vraiment effacer la consultation de "{{ consultation.patient_nom }} {{ consultation.patient_prenom }}" ?
+                </h2>
+
+                <ul class="list-group mb-4">
+                    <li class="list-group-item"><b>Nom : </b>{{ consultation.patient_nom }}</li>
+                    <li class="list-group-item"><b>Prénom : </b>{{ consultation.patient_prenom }}</li>
+                    <li class="list-group-item"><b>Genre : </b>{{ consultation.patient_genre }}</li>
+                    <li class="list-group-item"><b>Date : </b>{{ consultation.date_consultation }}</li>
+                    <li class="list-group-item"><b>Description : </b>{{ consultation.description }}</li>
+                </ul>
+
+                <form method="POST" class="d-flex gap-2">
+                    {% csrf_token %}
+                    <button type="submit" name="delete" class="btn btn-danger">Effacer</button>
+                    <a href="{% url 'consultations' %}" class="btn btn-secondary">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

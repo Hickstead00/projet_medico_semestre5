@@ -64,7 +64,7 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Créations** de la vue pour les nouvelles consulations
 
-- **Créations* du fichier forms + **Ajout** d'un formulaire pour créer une nouvelle consultation
+- **Créations** du fichier forms + **Ajout** d'un formulaire pour créer une nouvelle consultation
 
 - **Créations** d'un template pour pouvoir afficher le formulaire
 
@@ -90,6 +90,16 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 - **Ajout** d'un template pour la modification d'une consultation
 
 - **Ajout** d'un bouton pour modifier une consultation directement sur la page de toutes les consultations. 
+
+**QUESTION 10 (BODIN Virgile)** :
+
+- **Créations** de la view accueil ainsi que de l'url et du template correspondant
+
+- **Création** du template base.html qui contient la base de toutes les pages du site (boilerplate html, navbar, pied de page)
+
+- **MAJ** de tout les templates html afin qu'ils héritent de base.html et facilitation de la navigation entre les pages
+
+- **Modification** de quelques noms de fonctions (changer_consultation) afin de rendre le code plus cohérent
 
 
 
