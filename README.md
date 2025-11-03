@@ -16,3 +16,18 @@ python manage.py startapp medico
 *afin de créer l'application medico*
 
 
+** QUESTION 2 (AMGHAR Gassien)**
+
+- **Modification** du fichier settings afin lier l'application
+
+- **Ajout** de l'url général de l'application
+
+- **Ajout** de l'url pour la page about
+
+- **Ajout** du dossier templates ainsi que du template about
+
+- **Ajout** de la vue about
+
+
+
+
