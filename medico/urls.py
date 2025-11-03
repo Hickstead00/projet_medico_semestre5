@@ -5,5 +5,6 @@ urlpatterns = [
     path("about", views.about, name="about"),
     path("consultations/<int:consultation_id>/", views.consultation, name="consultation"),
     path("consultations", views.consultations, name="consultations"),
-    path("nouvelle_consultation",views.nouvelle_consultation,name="nouvelle_consultation")
+    path("nouvelle_consultation",views.nouvelle_consultation,name="nouvelle_consultation"),
+    path("effacer_consultation/<int:consultation_id>/",views.effacer_consultation,name="effacer_consultation")
 ]

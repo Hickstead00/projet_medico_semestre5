@@ -69,3 +69,17 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 - **Créations** d'un template pour pouvoir afficher le formulaire
 
 - **Ajout** de l'url pour accéder à la page du formulaire de nouvelle consultation
+
+**QUESTION 8 (FAURE-BIGNOLAS Guerric)**
+
+- **Créations** de la vue pour effacer une consultations
+
+- **Créations** d'un formulaire pour effacer la consultation 
+
+- **Ajout** d'un template page de suppression de consultation
+
+- **Ajout** sur la liste des consultations du lien qui envoie sur la page de suppression associé à la consultation
+
+
+
+

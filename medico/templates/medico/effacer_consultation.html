@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effacer une consultation</title>
+</head>
+<body>
+    <h1>Voulez-vous vraiment effacer la consultation"{{consultation.patient_nom}}{{consultation.patient_prenom}}" ?</h1>
+    <ul>
+        <li><b>Nom : </b>{{consultation.patient_nom}}</li>
+        <li><b>Prenom : </b>{{consultation.patient_prenom}}</li>
+        <li><b>Genre : </b>{{consultation.patient_genre}}</li>
+        <li><b>Date : </b>{{consultation.date_consultation}}</li>
+        <li><b>Description : </b>{{consultation.patient_}}</li>
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="delete">Effacer</button>
+    </form>
+    <p><a href={% url "consultations" %}>Retour à la liste des livres</a></p>
+    
+</body>
+</html>
