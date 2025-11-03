@@ -1,0 +1,145 @@
+[{
+    "model":"medico.consultation",
+    "pk":1,
+    "fields":{
+        "patient_nom": "BODIN",
+        "patient_prenom": "Virgile",
+        "patient_genre": "M",
+        "patient_age":31,
+        "description": "Consultation lié à une allergie aux canidés",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":2,
+    "fields":{
+        "patient_nom": "AMGHAR",
+        "patient_prenom": "Gassien",
+        "patient_genre": "M",
+        "patient_age":24,
+        "description": "Certificat médical pour la pratique du powerlifting en competition",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":3,
+    "fields":{
+        "patient_nom": "GOMES CARDOSO",
+        "patient_prenom": "Rui",
+        "patient_genre": "M",
+        "patient_age":20,
+        "description": "Consultation pour une tendinite à l'épaule gauche",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":4,
+    "fields":{
+        "patient_nom": "FAURE-BIGNOLAS",
+        "patient_prenom": "Guerric",
+        "patient_genre": "M",
+        "patient_age":20,
+        "description": "Certificat médical pour la pratique du Jiujitsu Brésilien en compétition",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":5,
+    "fields":{
+        "patient_nom": "LOULERGUE",
+        "patient_prenom": "Frédéric",
+        "patient_genre": "M",
+        "patient_age":40,
+        "description": "Consultation lié à une tendinite",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":6,
+    "fields":{
+        "patient_nom": "DELAFLEUR",
+        "patient_prenom": "Rose",
+        "patient_genre": "F",
+        "patient_age":31,
+        "description": "Consultation pour une allergie au pollen",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":7,
+    "fields":{
+        "patient_nom": "EINSTEIN",
+        "patient_prenom": "Albert",
+        "patient_genre": "M",
+        "patient_age":78,
+        "description": "Consultation lié à des migraines récurrentes",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":8,
+    "fields":{
+        "patient_nom": "PASCAL",
+        "patient_prenom": "Blaise",
+        "patient_genre": "M",
+        "patient_age":86,
+        "description": "Consultation pour une fracture à l'épaule",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":9,
+    "fields":{
+        "patient_nom": "CURIE",
+        "patient_prenom": "Marie",
+        "patient_genre": "F",
+        "patient_age":106,
+        "description": "Consultation pour une tumeur généralisée",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":10,
+    "fields":{
+        "patient_nom": "DJAMAT DUBOIS",
+        "patient_prenom": "Zac",
+        "patient_genre": "M",
+        "patient_age":19,
+        "description": "Certificat médical pour la pratique du Jiujitsu Brésilien en compétition",
+        "date_consultation": "2025-11-03"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":11,
+    "fields":{
+        "patient_nom": "AMGHAR",
+        "patient_prenom": "Teddy",
+        "patient_genre": "M",
+        "patient_age":65,
+        "description": "Soupçons d'arrêt cardiaque",
+        "date_consultation": "1967-08-10"
+    }
+},
+{
+    "model":"medico.consultation",
+    "pk":12,
+    "fields":{
+        "patient_nom": "DJELLOUL",
+        "patient_prenom": "Khalil",
+        "patient_genre": "M",
+        "patient_age":42,
+        "description": "Trop de jointure effectué",
+        "date_consultation": "2025-11-03"
+    }
+}
+]

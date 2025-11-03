@@ -33,10 +33,15 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Création** du modèle consultation
 
-- **Migrations* effectuées sur le modèle (*python manage.py makemigrations* , *python manage.py migrate*)
+- **Migrations** effectuées sur le modèle (*python manage.py makemigrations* , *python manage.py migrate*)
 
 - **Test** de la creation via le shell (*python manage.py shell*)
 
+**QUESTION 4 (FAURE-BIGNOLAS Guerric)**
+
+- **Création** d' examples.json afin de simuler une base de données avec des consultations
+
+- **Test** de la commande python manage.py loadata examples
 
 
 
