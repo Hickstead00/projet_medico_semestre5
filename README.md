@@ -43,5 +43,12 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Test** de la commande python manage.py loadata examples
 
+**QUESTION 5 (BODIN VIRGILE)**
+
+- **Création** de la view consultations
+
+- **Création** du template consultation.html correspondant
+
+- **Ajout** de l'url pour y accéder
 
 

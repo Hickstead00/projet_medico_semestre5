@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Détail de la consultation de {{consultation.patient_prenom}} {{consultation.patient_nom}}  </title>
+</head>
+<body>
+        <h1>Consultation de {{consultation.patient_prenom}} {{consultation.patient_nom}}</h1>
+    
+    <div>
+        <p><strong>Genre :</strong> {{consultation.patient_genre}}</p>
+        <p><strong>Âge :</strong> {{consultation.patient_age}} ans</p>
+        <p><strong>Date :</strong> {{consultation.date_consultation}}</p>
+        <p><strong>Description :</strong> {{consultation.description}}</p>
+    </div>
+</body>
+</html>
