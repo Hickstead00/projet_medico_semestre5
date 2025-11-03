@@ -45,10 +45,18 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 **QUESTION 5 (BODIN VIRGILE)**
 
-- **Création** de la view consultations
+- **Création** de la view consultation
 
 - **Création** du template consultation.html correspondant
 
 - **Ajout** de l'url pour y accéder
 
+
+**QUESTION 6 (AMGHAR Gassien)**
+
+- **Création** de la vue consultations
+
+- **Création** du template list_consultations.html pour afficher la liste des consultations
+
+- **Ajout** de l'url lié à la page de la liste des consultations.
 

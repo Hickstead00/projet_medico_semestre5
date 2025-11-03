@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les consultations</title>
+</head>
+<body>
+    <table>
+        {% for consultation in all_consultations %}
+        
+        <tr>
+            <td>{{consultation.patient_nom}}</td>
+            <td>{{consultation.patient_prenom}}</td>
+            <td>{{consultation.patient_genre}}</td>
+            <td>{{consultation.patient_age}}</td>
+            <td>{{consultation.date_consultation}}</td>
+            <td>{{consultation.description|truncatechars:20}}</td>
+            <td><a href={% url 'consultation' consultation.id %}>Fiche détaillée du patient</a></td>
+
+        </tr>
+    {% endfor %}
+    </table>
+    
+</body>
+</html>

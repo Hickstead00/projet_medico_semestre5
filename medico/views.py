@@ -15,3 +15,9 @@ def consultation(request, consultation_id):
     except Consultation.DoesNotExist:
         raise Http404("La consultation n'existe pas")
     return render(request, "medico/consultations.html", {"consultation":consultation})
+
+
+def consultations(request):
+    consultations = Consultation.objects.order_by("-date_consultation")
+    context = {"all_consultations" : consultations}
+    return render (request,"medico/list_consultations.html",context)
