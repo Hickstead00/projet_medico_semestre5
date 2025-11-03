@@ -6,7 +6,7 @@ class Consultation(models.Model):
     patient_genre = models.CharField(max_length=20,null=False)
     patient_age = models.IntegerField(null=False)
     description = models.TextField(null=False)
-    date_consultation = models.DateField(null=False)
+    date_consultation = models.DateField(auto_now_add=True)
 
 
     def __str__(self):

@@ -60,3 +60,12 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Ajout** de l'url lié à la page de la liste des consultations.
 
+**QUESTION 7 (GOMES CARDOSO Rui)**
+
+- **Créations** de la vue pour les nouvelles consulations
+
+- **Créations* du fichier forms + **Ajout** d'un formulaire pour créer une nouvelle consultation
+
+- **Créations** d'un template pour pouvoir afficher le formulaire
+
+- **Ajout** de l'url pour accéder à la page du formulaire de nouvelle consultation

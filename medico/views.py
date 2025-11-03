@@ -1,8 +1,9 @@
 
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 from medico.models import *
+from medico.forms import *
 
 # Create your views here.
 
@@ -21,3 +22,14 @@ def consultations(request):
     consultations = Consultation.objects.order_by("-date_consultation")
     context = {"all_consultations" : consultations}
     return render (request,"medico/list_consultations.html",context)
+
+def nouvelle_consultation(request):
+    if request.method == "POST":
+        form = ConsultationForm(request.POST)
+        if form.is_valid():
+            consult = form.save(commit=False)
+            consult.save()
+        return HttpResponseRedirect(f"consultations/{consult.id}")
+    else:
+        form = ConsultationForm()
+    return render(request,"medico/nouvelle_consultation_form.html",{"form" : form})
