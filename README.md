@@ -121,6 +121,14 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Ajout** du bouton dans la consultation qui redirige vers la création d'un nouveaux traitement associé à la consultation
 
+**QUESTION 12 Part 2 (BODIN Virgile)**
+
+- **Ajout** d'un menu déroulant en accordéon pour lister les différents traitements associés a une consultation
+
+- **Ajout** de boutons retours sur chaque formulaire / page permettant un retour à la page précédente
+
+- **Ajout** de faux boutons pour la suite du projet pour placeholder les fonctionnalités modifier/supprimer
+
 
 
 

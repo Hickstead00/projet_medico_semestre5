@@ -15,11 +15,9 @@ def accueil(request):
     return render(request, "medico/accueil.html", {"dernieres_consultations": dernieres_consultations})
 
 def consultation(request, consultation_id):
-    try:
-        consultation = Consultation.objects.get(pk=consultation_id)
-    except Consultation.DoesNotExist:
-        raise Http404("La consultation n'existe pas")
-    return render(request, "medico/consultations.html", {"consultation":consultation})
+    consultation = get_object_or_404(Consultation, pk=consultation_id)
+    traitements = consultation.traitement_set.all()
+    return render(request, "medico/consultations.html", {"consultation":consultation, "traitements":traitements})
 
 
 def consultations(request):
@@ -73,4 +71,4 @@ def nouveau_traitement(request,consultation_id):
         return HttpResponseRedirect(f"/medico/consultations/{consultation_id}")
     else:
         form= TraitementForm()
-    return render(request,f"medico/nouveau_traitement.html",{'form':form})
+    return render(request,f"medico/nouveau_traitement.html",{'form':form, "consultation_id":consultation_id})

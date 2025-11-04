@@ -23,6 +23,6 @@ class TraitementForm(ModelForm):
             "quantite":"Quantité",
             "contenant":"Contenant",
             "duree_en_jours":"Durée en jours",
-            "dosage":"Dosage",
+            "dosage":"Dosage journalier",
             "instructions_utilisations":"Instructions d'utilisations"
         }

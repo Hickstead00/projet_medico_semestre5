@@ -19,11 +19,43 @@
                     <li class="list-group-item"><strong>Description :</strong> {{ consultation.description }}</li>
                 </ul>
 
-                <a href="{% url 'consultations' %}" class="btn btn-secondary">Retour à la liste</a>
-                <a href="{% url 'nouveau_traitement' consultation.id %}" class="btn btn-success">Nouveau traitement</a>
-
+                <div class="d-flex gap-2 mb-3">
+                    <a href="{% url 'nouveau_traitement' consultation.id %}" class="btn btn-success flex-grow-1">Nouveau traitement</a>
+                    <a href="{% url 'consultations' %}" class="btn btn-secondary flex-grow-1">Retour à la liste</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<hr>
+
+<div class="accordion mt-4" id="traitementsAccordion">
+    {% for traitement in traitements %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ traitement.id }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ traitement.id }}" aria-expanded="false" aria-controls="collapse{{ traitement.id }}">
+                {{ traitement.medicament }}
+            </button>
+        </h2>
+    <div id="collapse{{ traitement.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ traitement.id }}" data-bs-parent="#traitementsAccordion">
+        <div class="accordion-body">
+            <p><strong>Contenant :</strong> {{ traitement.contenant }}</p>
+            <p><strong>Durée :</strong> {{ traitement.duree_en_jours }} jours</p>
+            <p><strong>Dosage journalier :</strong> {{ traitement.dosage }}</p>
+            <p><strong>Instructions :</strong> {{ traitement.instructions_utilisations }}</p>
+
+        <div class="mt-3 d-flex gap-2">
+            <button class="btn btn-sm btn-warning" disabled>Modifier</button>
+            <button class="btn btn-sm btn-danger" disabled>Supprimer</button>
+        </div>
+    </div>
+</div>
+    </div>
+    {% empty %}
+        <p class="text-center">Aucun traitement associé à cette consultation.</p>
+    {% endfor %}
+</div>
+
+
 {% endblock %}
