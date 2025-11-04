@@ -101,6 +101,14 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Modification** de quelques noms de fonctions (changer_consultation) afin de rendre le code plus cohérent
 
+** QUESTION 11 (Gomes Cardoso Rui)**
+
+- **Création** du modèle Traitement 
+
+- **Migrations** effectuées sur le modèle (*python manage.py makemigrations* , *python manage.py migrate*)
+
+- **Test** de l'ajout d'un Traitement dans la BD avec le shell avec une Consultation passé dans les attribut
+
 
 
 

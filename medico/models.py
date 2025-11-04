@@ -11,5 +11,17 @@ class Consultation(models.Model):
 
     def __str__(self):
         return f"Nom : {self.patient_nom}, Prenom : {self.patient_prenom}, Date de consultation : {self.date_consultation} "
+    
+class Traitement(models.Model):
+    medicament = models.CharField(max_length=40,null=False)
+    quantite = models.IntegerField(null=False)
+    contenant = models.CharField(max_length=40,null=False)
+    duree_en_jours = models.IntegerField(null=False)
+    dosage = models.IntegerField(null=False)
+    instructions_utilisations = models.TextField(null=False)
+    consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Nom du medicament : {self.medicament}, Nombre de boite : {self.quantite}, Contenant : {self.contenant}, Durée du traitement : {self.duree_en_jours}, Dosage : {self.dosage}, Instructions d'utilisation : {self.instructions_utilisations}, Consultation : {self.consultation}"
 
 
