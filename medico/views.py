@@ -72,3 +72,11 @@ def nouveau_traitement(request,consultation_id):
     else:
         form= TraitementForm()
     return render(request,f"medico/nouveau_traitement.html",{'form':form, "consultation_id":consultation_id})
+
+def supprimer_traitement(request,traitement_id):
+    traitement=get_object_or_404(Traitement,pk=traitement_id)
+    if request.method =="POST":
+        traitement.delete()
+        return redirect('consultation', consultation_id = traitement.consultation.id)
+    return render(request,"medico/supprimer_traitement.html",{"traitement":traitement})
+

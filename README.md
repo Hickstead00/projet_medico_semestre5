@@ -129,6 +129,15 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Ajout** de faux boutons pour la suite du projet pour placeholder les fonctionnalités modifier/supprimer
 
+**QUESTION 12 Part 3 (AMGHAR Gassien)**
+
+- **Ajout** de la vue pour supprimer un traitement
+
+- **Ajout** du template pour valider la suppression du traitement
+
+- **Ajout** de l'url correspondant
+
+
 
 
 

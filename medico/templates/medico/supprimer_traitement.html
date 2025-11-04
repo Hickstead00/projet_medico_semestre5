@@ -1,0 +1,32 @@
+{% extends "medico/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Supprimer traitement{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body"> 
+                <h2 class="card-title text-danger mb-3">
+                    Voulez-vous vraiment supprimer le traitement "{{traitement.medicament}}" de "{{ traitement.consultation.patient_nom }} {{ traitement.consultation.patient_prenom }}" ?
+                </h2>
+
+                <ul class="list-group mb-4">
+                    <li class="list-group-item"><b>Date : </b>{{ traitement.consultation.date_consultation }}</li>
+                    <li class="list-group-item"><b>Motif de consultation : </b>{{ traitement.consultation.description }}</li>
+                    <li class="list-group-item"><b>Durée : </b>{{ traitement.duree_en_jours }}</li>
+                    <li class="list-group-item"><b>Instructions : </b>{{ traitement.instructions_utilisations }}</li>
+                    
+                </ul>
+
+                <form method="POST" class="d-flex gap-2">
+                    {% csrf_token %}
+                    <button type="submit" name="delete" class="btn btn-danger">Supprimer</button>
+                    <a href="{% url 'consultation' traitement.consultation.id  %}" class="btn btn-secondary">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

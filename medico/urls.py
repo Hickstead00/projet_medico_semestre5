@@ -10,4 +10,5 @@ urlpatterns = [
     path("changer_consultation/<int:consultation_id>/",views.changer_consultation, name="changer_consultation"),
     path('', views.accueil, name="accueil"),
     path('nouveau_traitement/<int:consultation_id>/',views.nouveau_traitement,name="nouveau_traitement"),
+    path('supprimer_traitement/<int:traitement_id>/',views.supprimer_traitement,name="supprimer_traitement")
 ]
