@@ -22,8 +22,8 @@
 
                 <form method="POST" class="d-flex gap-2">
                     {% csrf_token %}
-                    <button type="submit" name="delete" class="btn btn-danger">Supprimer</button>
-                    <a href="{% url 'consultation' traitement.consultation.id  %}" class="btn btn-secondary">Annuler</a>
+                    <button type="submit" name="delete" class="btn btn-danger flex-grow-1">Supprimer</button>
+                    <a href="{% url 'consultation' traitement.consultation.id  %}" class="btn btn-secondary flex-grow-1">Annuler</a>
                 </form>
             </div>
         </div>

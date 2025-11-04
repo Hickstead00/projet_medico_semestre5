@@ -137,6 +137,15 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Ajout** de l'url correspondant
 
+**QUESTION12 Part 4 (GOMES CARDOSO Rui)**
+
+- **Ajout** de la vue pour modifier le traitement avec les donnée déjà remplis
+
+- **Ajout** du template pour modifier le traitement
+
+- **Ajout** de l'url correspondant pour modifier le traitement 
+
+- **Ajout** des bouton retour dans les modifications 
 
 
 

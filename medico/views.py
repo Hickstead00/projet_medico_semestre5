@@ -80,3 +80,14 @@ def supprimer_traitement(request,traitement_id):
         return redirect('consultation', consultation_id = traitement.consultation.id)
     return render(request,"medico/supprimer_traitement.html",{"traitement":traitement})
 
+def modifier_traitement(request,traitement_id):
+    traitement = get_object_or_404(Traitement,pk=traitement_id)
+    id_consultation = traitement.consultation.id
+    if request.method == "POST":
+        form = TraitementForm(request.POST, instance=traitement)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect(f"/medico/consultations/{id_consultation}")
+    else:
+        form = TraitementForm(instance=traitement)
+    return render(request,f"medico/modifier_traitement.html",{'form' : form, 'id_consultation': id_consultation})
