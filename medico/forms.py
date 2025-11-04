@@ -13,3 +13,16 @@ class ConsultationForm(ModelForm):
             "patient_age" : "Age du patient",
             "description" : "Description",
         }
+
+class TraitementForm(ModelForm):
+    class Meta:
+        model= Traitement
+        fields= ["medicament","quantite","contenant","duree_en_jours","dosage","instructions_utilisations"]
+        labels ={
+            "medicament" : "Médicament",
+            "quantite":"Quantité",
+            "contenant":"Contenant",
+            "duree_en_jours":"Durée en jours",
+            "dosage":"Dosage",
+            "instructions_utilisations":"Instructions d'utilisations"
+        }

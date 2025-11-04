@@ -60,3 +60,17 @@ def changer_consultation(request, consultation_id):
     else:
         form = ConsultationForm(instance=consultation)
     return render(request, "medico/changer_consultation.html", {"form" : form ,"button_label": "Modifier"})
+
+
+def nouveau_traitement(request,consultation_id):
+    consultation = get_object_or_404(Consultation,pk=consultation_id)
+    if request.method=="POST":
+        form = TraitementForm(request.POST)
+        if form.is_valid():
+            traitement = form.save(commit=False)
+            traitement.consultation=consultation
+            traitement.save()
+        return HttpResponseRedirect(f"/medico/consultations/{consultation_id}")
+    else:
+        form= TraitementForm()
+    return render(request,f"medico/nouveau_traitement.html",{'form':form})

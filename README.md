@@ -101,7 +101,7 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Modification** de quelques noms de fonctions (changer_consultation) afin de rendre le code plus cohérent
 
-** QUESTION 11 (Gomes Cardoso Rui)**
+**QUESTION 11 (Gomes Cardoso Rui)**
 
 - **Création** du modèle Traitement 
 
@@ -109,9 +109,17 @@ Une fois les fichier docker récupérés et placé dans le dossier, les commande
 
 - **Test** de l'ajout d'un Traitement dans la BD avec le shell avec une Consultation passé dans les attribut
 
+**QUESTION 12 Part 1 (FAURE-BIGNOLAS Guerric)**
 
+- **Création** du formulaire de création des traitements
 
+- **Ajout** dans la views du formulaire de la page nouveaux traitement 
 
+- **Création** d'un template pour afficher le formulaire
+
+- **Ajout** de l'url associé
+
+- **Ajout** du bouton dans la consultation qui redirige vers la création d'un nouveaux traitement associé à la consultation
 
 
 
