@@ -97,13 +97,18 @@
             }
 
             .floating-cart {
-                position: fixed;
-                right: 20px;
-                bottom: 20px;
+                position: relative;
                 z-index: 1050;
                 padding: 10px 14px;
                 border-radius: 8px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                transition: all 0.3s ease;
+            }
+            
+            .floating-cart.is-fixed {
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
             }
 
             .cart-buttons {

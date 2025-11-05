@@ -1,0 +1,58 @@
+{% extends "medico/base_blackmarket.html" %}
+{% load static %}
+
+{% block title %}Paiement Bitcoin{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="terminal-title text-center mb-4">Paiement Bitcoin</h2>
+
+                    <form method="POST" class="payment-form">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <label class="form-label mb-2" for="bitcoin_address">
+                                Adresse Bitcoin de destination:
+                            </label>
+                            <input 
+                                type="text" 
+                                id="bitcoin_address" 
+                                name="bitcoin_address" 
+                                class="form-control form-input" 
+                                placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" 
+                                required
+                                pattern="[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-z0-9]{39,59}"
+                                title="Format d'adresse Bitcoin valide requis"
+                            >
+                            <div class="bitcoin-address-example text-muted small mt-2">
+                                Format: 1... ou 3... ou bc1... (ex: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)
+                            </div>
+                        </div>
+                        
+                        <div class="payment-info terminal-border p-3 mb-4">
+                            <div class="console-line">
+                                <span class="console-prompt">$</span> <span class="console-output">Montant: {{ total }} BTC</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-prompt">$</span> <span class="console-output">Réseau: Bitcoin Mainnet</span>
+                            </div>
+                            <div class="console-line">
+                                <span class="console-prompt">$</span> <span class="console-output">Articles: {{ nombre_articles }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-lg submit-btn">
+                                ✓ CONFIRMER LE PAIEMENT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
