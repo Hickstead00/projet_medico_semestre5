@@ -91,3 +91,6 @@ def modifier_traitement(request,traitement_id):
     else:
         form = TraitementForm(instance=traitement)
     return render(request,f"medico/modifier_traitement.html",{'form' : form, 'id_consultation': id_consultation})
+
+def black_market_confirm(request):
+    return render(request, "medico/black_market_confirm.html")
