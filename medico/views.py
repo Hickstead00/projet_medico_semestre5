@@ -160,6 +160,43 @@ def retirer_du_panier(request, item_id):
     
     return redirect('panier')
 
+def retirer_un_du_panier(request, item_id):
+    panier = request.session.get('panier', {})
+    item_id_str = str(item_id)
+
+    if item_id_str in panier and isinstance(panier[item_id_str], dict):
+        current_qte = panier[item_id_str].get('quantite', 0)
+        if current_qte > 1:
+            panier[item_id_str]['quantite'] = current_qte - 1
+        else:
+            del panier[item_id_str]
+
+        request.session['panier'] = panier
+        request.session.modified = True
+
+    return redirect('panier')
+
+def ajouter_un_au_panier(request, item_id):
+    item = get_object_or_404(BlackMarketItem, pk=item_id)
+
+    panier = request.session.get('panier', {})
+    item_id_str = str(item_id)
+
+    if item_id_str in panier:
+        panier[item_id_str]['quantite'] = panier[item_id_str].get('quantite', 0) + 1
+    else:
+        panier[item_id_str] = {
+            'nom': item.nom_item,
+            'prix': float(item.prix),
+            'quantite': 1,
+            'image_url': item.image_url
+        }
+
+    request.session['panier'] = panier
+    request.session.modified = True
+
+    return redirect('panier')
+
 def vider_panier(request):
     if 'panier' in request.session:
         del request.session['panier']

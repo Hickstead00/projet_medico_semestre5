@@ -24,12 +24,13 @@
                             <div class="col-md-2">
                                 <p class="mb-0">{{ item.prix }} crédits</p>
                             </div>
-                            <div class="col-md-2">
-                                <p class="mb-0">Quantité: {{ item.quantite }}</p>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{% url 'retirer_du_panier' item_id %}" 
-                                   class="btn btn-sm">Retirer</a>
+                            <div class="col-md-2 d-flex align-items-center">
+                                <p class="mb-0 me-2">Quantité: {{ item.quantite }}</p>
+                                <div class="cart-buttons">
+                                    <a href="{% url 'retirer_un_du_panier' item_id %}" class="btn btn-sm" title="Retirer 1">-</a>
+                                    <a href="{% url 'retirer_du_panier' item_id %}" class="btn btn-sm" title="Retirer l'article">Supprimer</a>
+                                    <a href="{% url 'ajouter_un_au_panier' item_id %}" class="btn btn-sm" title="Ajouter 1">+</a>
+                                </div>
                             </div>
                         </div>
                     </div>

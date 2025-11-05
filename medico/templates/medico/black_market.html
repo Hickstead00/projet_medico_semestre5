@@ -25,7 +25,7 @@
     </div>
 
     <div class="d-flex justify-content-end mt-4 mb-4">
-        <a href="{% url 'panier' %}" class="btn btn-outline-bm">Voir mon panier 
+        <a href="{% url 'panier' %}" class="btn btn-outline-bm floating-cart" id="floating-cart">Voir mon panier 
         {% if panier_nombre_articles > 0 %}
             ({{ panier_nombre_articles }})
         {% endif %}
@@ -47,7 +47,7 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <span class="fw-bold card-text">{{ item.prix }} crédits</span>
-                <a href="{% url 'ajouter_au_panier' item.id %}" class="btn btn-sm">Acheter</a>
+                <a href="{% url 'ajouter_au_panier' item.id %}" class="btn btn-sm">Ajouter</a>
             </div>
         </div>
     </div>
