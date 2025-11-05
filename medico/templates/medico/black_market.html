@@ -3,22 +3,33 @@
 
 {% block title %}Black-Market{% endblock %}
 
+{% block scripts %}
+<script src="{% static 'medico/javascript/terminal.js' %}"></script>
+{% endblock %}
+
 {% block content %}
+
+<div id="terminal-sequence" class="terminal-border">
+    <div class="console-line"> <span class="console-prompt">$</span> <span class="console-output">Initialisation du shop...</span> </div>
+    <div class="console-line"> <span class="console-prompt">$</span> <span class="console-output">[OK] Shop initialisé</span> </div>
+    <div class="console-line"> <span class="console-prompt">$</span> <span class="console-output">Chargement des articles disponibles...</span> </div>
+    <div class="console-line"> <span class="console-prompt">$</span> <span class="console-output">[OK] Articles chargés avec succès</span> </div>
+</div>
+<div id="blackmarket-content" style="display: none;">
 <div class="text-center">
     <h1 class="mb-4 terminal-title">Bienvenue dans le Black-Market</h1>
-    <p class="lead">Ici, vous pouvez accéder à des fonctionnalités avancées et non documentées de l'application. Utilisez-les avec précaution.</p>
+    <p class="lead">Ici, vous pouvez accéder à des fonctionnalités avancées et non documentées de l'application.
+        Utilisez-les avec précaution.</p>
 </div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for item in items %}
     <div class="col">
         <div class="card h-100 text-center p-3 shadow-sm">
-            
-            <img src="{% static item.image_url %}" 
-                 class="card-img-top mx-auto"
-                 alt="{{ item.nom_item }}" 
-                 style="height: 100px; width: 100px; object-fit: contain;">
-            
+
+            <img src="{% static item.image_url %}" class="card-img-top mx-auto" alt="{{ item.nom_item }}"
+                style="height: 100px; width: 100px; object-fit: contain;">
+
             <div class="card-body">
                 <h5 class="card-title glow">{{ item.nom_item }}</h5>
                 <p class="card-text">{{ item.description }}</p>
@@ -31,6 +42,7 @@
         </div>
     </div>
     {% endfor %}
+</div>
 </div>
 
 {% endblock %}
