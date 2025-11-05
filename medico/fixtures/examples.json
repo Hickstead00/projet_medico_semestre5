@@ -141,5 +141,15 @@
         "description": "Trop de jointure effectué",
         "date_consultation": "2025-11-03"
     }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":1,
+    "fields":{
+        "nom_item": "Stimulant X",
+        "description": "Un puissant stimulant qui augmente temporairement l'énergie et la concentration.",
+        "prix": 500,
+        "image_url": "medico/images/fizzing-flask.svg"
+    }
 }
 ]
