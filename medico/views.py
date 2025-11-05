@@ -94,3 +94,7 @@ def modifier_traitement(request,traitement_id):
 
 def black_market_confirm(request):
     return render(request, "medico/black_market_confirm.html")
+
+def black_market(request):
+    items = BlackMarketItem.objects.all()
+    return render(request, "medico/black_market.html", {"items": items})

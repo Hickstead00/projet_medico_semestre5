@@ -13,4 +13,5 @@ urlpatterns = [
     path('supprimer_traitement/<int:traitement_id>/',views.supprimer_traitement,name="supprimer_traitement"),
     path('modifier_traitement/<int:traitement_id>/',views.modifier_traitement,name="modifier_traitement"),
     path('black_market_confirm/', views.black_market_confirm, name='black_market_confirm'),
+    path('black_market/', views.black_market, name='black_market'),
 ]
