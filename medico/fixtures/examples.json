@@ -151,5 +151,145 @@
         "prix": 500,
         "image_url": "medico/images/fizzing-flask.svg"
     }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":2,
+    "fields":{
+        "nom_item": "Médicament Y",
+        "description": "Un médicament rare utilisé pour traiter des maladies spécifiques.",
+        "prix": 1200,
+        "image_url": "medico/images/bottled-bolt.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":3,
+    "fields":{
+        "nom_item": "Traitement Z",
+        "description": "Un traitement avancé pour améliorer la récupération après une blessure.",
+        "prix": 800,
+        "image_url": "medico/images/bottled-shadow.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":4,
+    "fields":{
+        "nom_item": "Potion de guérison",
+        "description": "Une potion qui accélère la guérison des blessures mineures.",
+        "prix": 300,
+        "image_url": "medico/images/brandy-bottle.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":5,
+    "fields":{
+        "nom_item": "Antidote rare",
+        "description": "Un antidote efficace contre les poisons rares.",
+        "prix": 1500,
+        "image_url": "medico/images/bubbling-flask.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":6,
+    "fields":{
+        "nom_item": "Supplément énergétique",
+        "description": "Un supplément qui améliore l'endurance et la performance physique.",
+        "prix": 700,
+        "image_url": "medico/images/emerald.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":7,
+    "fields":{
+        "nom_item": "Kit de survie médicale",
+        "description": "Un kit complet pour les situations d'urgence médicale.",
+        "prix": 2000,
+        "image_url": "medico/images/fire-bottle.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":8,
+    "fields":{
+        "nom_item": "Serum de régénération",
+        "description": "Un sérum qui favorise la régénération cellulaire rapide.",
+        "prix": 2500,
+        "image_url": "medico/images/heart-bottle.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":9,
+    "fields":{
+        "nom_item": "Analgésique puissant",
+        "description": "Un analgésique efficace pour soulager les douleurs intenses.",
+        "prix": 900,
+        "image_url": "medico/images/holy-water.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":10,
+    "fields":{
+        "nom_item": "Inhibiteur de stress",
+        "description": "Un médicament qui réduit le stress et l'anxiété.",
+        "prix": 1100,
+        "image_url": "medico/images/magic-potion.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":11,
+    "fields":{
+        "nom_item": "Booster cognitif",
+        "description": "Un supplément qui améliore les fonctions cognitives et la mémoire.",
+        "prix": 1300,
+        "image_url": "medico/images/nectar.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":12,
+    "fields":{
+        "nom_item": "Patch de récupération rapide",
+        "description": "Un patch qui accélère la récupération musculaire après un effort intense.",
+        "prix": 600,
+        "image_url": "medico/images/potion-of-madness.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":13,
+    "fields":{
+        "nom_item": "Spray antiseptique",
+        "description": "Un spray efficace pour désinfecter les plaies et prévenir les infections.",
+        "prix": 400,
+        "image_url": "medico/images/round-bottom-flask.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":14,
+    "fields":{
+        "nom_item": "Capsules de sommeil profond",
+        "description": "Des capsules qui favorisent un sommeil réparateur et profond.",
+        "prix": 750,
+        "image_url": "medico/images/round-potion.svg"
+    }
+},
+{
+    "model":"medico.blackmarketitem",
+    "pk":15,
+    "fields":{
+        "nom_item": "Gélules de performance athlétique",
+        "description": "Des gélules qui améliorent les performances athlétiques et la résistance.",
+        "prix": 1400,
+        "image_url": "medico/images/snow-bottle.svg"
+    }
 }
 ]
