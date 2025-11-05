@@ -1,0 +1,70 @@
+{% extends "medico/base_blackmarket.html" %}
+{% load static %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 terminal-title text-center">Mon Panier</h1>
+    
+    {% if panier %}
+        <div class="row">
+            <div class="col-md-8">
+                {% for item_id, item in panier.items %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="{% static item.image_url %}" alt="{{ item.nom }}" 
+                                     style="width: 80px; height: 80px; object-fit: contain;">
+                            </div>
+                            <div class="col-md-4">
+                                <h5>{{ item.nom }}</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="mb-0">{{ item.prix }} crédits</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="mb-0">Quantité: {{ item.quantite }}</p>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'retirer_du_panier' item_id %}" 
+                                   class="btn btn-sm">Retirer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Récapitulatif</h5>
+                        <hr>
+                        <p>Nombre d'articles: <strong>{{ nombre_articles }}</strong></p>
+                        <p>Total: <strong>{{ total }} crédits</strong></p>
+                        <hr>
+                        <a href="{% url 'valider_achat' %}" class="btn w-100 mb-2">
+                            Valider l'achat
+                        </a>
+                        <a href="{% url 'vider_panier' %}" class="btn w-100 mb-2">
+                            Vider le panier
+                        </a>
+                        <a href="{% url 'black_market' %}" class="btn  w-100">
+                            Continuer mes achats
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="text-center">
+            <p class="lead">Votre panier est vide</p>
+            <a href="{% url 'black_market' %}" class="btn">
+                Retour au Black-Market
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

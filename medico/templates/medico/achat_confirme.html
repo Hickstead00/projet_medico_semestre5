@@ -1,0 +1,18 @@
+{% extends "medico/base_blackmarket.html" %}
+
+{% block title %}Achat Confirmé{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4 terminal-title">Achat Confirmé !</h1>
+        <p class="lead">Votre commande a été validée avec succès.</p>
+        <p>Total payé: <strong>{{ total }} crédits</strong></p>
+        <div class="mt-4">
+            <a href="{% url 'black_market' %}" class="btn ">
+                Retour au Black-Market
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

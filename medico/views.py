@@ -97,4 +97,83 @@ def black_market_confirm(request):
 
 def black_market(request):
     items = BlackMarketItem.objects.all()
-    return render(request, "medico/black_market.html", {"items": items})
+    panier = request.session.get('panier', {})
+    nombre_articles = 0
+    if isinstance(panier, dict):
+        for item in panier.values():
+            nombre_articles += item.get('quantite', 0)
+    return render(request, "medico/black_market.html", {"items": items, "panier_nombre_articles": nombre_articles})
+
+def ajouter_au_panier(request, item_id):
+    item = get_object_or_404(BlackMarketItem, pk=item_id)
+    
+    panier = request.session.get('panier', {})
+    
+    item_id_str = str(item_id)
+    
+    if item_id_str in panier:
+        panier[item_id_str]['quantite'] += 1
+    else:
+        panier[item_id_str] = {
+            'nom': item.nom_item,
+            'prix': float(item.prix),
+            'quantite': 1,
+            'image_url': item.image_url
+        }
+    
+    request.session['panier'] = panier
+    request.session.modified = True
+    
+    return redirect('black_market')
+
+def panier(request):
+    panier = request.session.get('panier', {})
+    
+    if not isinstance(panier, dict):
+        panier = {}
+        request.session['panier'] = panier
+    
+    total = 0
+    nombre_articles = 0
+    
+    for item in panier.values():
+        if isinstance(item, dict):
+            total += item.get('prix', 0) * item.get('quantite', 0)
+            nombre_articles += item.get('quantite', 0)
+    
+    context = {
+        'panier': panier,
+        'total': total,
+        'nombre_articles': nombre_articles
+    }
+    
+    return render(request, 'medico/panier.html', context)
+
+def retirer_du_panier(request, item_id):
+    panier = request.session.get('panier', {})
+    item_id_str = str(item_id)
+    
+    if item_id_str in panier:
+        del panier[item_id_str]
+        request.session['panier'] = panier
+        request.session.modified = True
+    
+    return redirect('panier')
+
+def vider_panier(request):
+    if 'panier' in request.session:
+        del request.session['panier']
+    return redirect('panier')
+
+def valider_achat(request):
+    panier = request.session.get('panier', {})
+    
+    if not panier:
+        return redirect('panier')
+    
+    total = sum(item['prix'] * item['quantite'] for item in panier.values())
+    
+    del request.session['panier']
+    
+    return render(request, 'medico/achat_confirme.html', {'total': total})
+

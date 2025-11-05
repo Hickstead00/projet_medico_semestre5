@@ -14,4 +14,9 @@ urlpatterns = [
     path('modifier_traitement/<int:traitement_id>/',views.modifier_traitement,name="modifier_traitement"),
     path('black_market_confirm/', views.black_market_confirm, name='black_market_confirm'),
     path('black_market/', views.black_market, name='black_market'),
+    path('panier/', views.panier, name='panier'),
+    path('ajouter_au_panier/<int:item_id>/', views.ajouter_au_panier, name='ajouter_au_panier'),
+    path('retirer_du_panier/<int:item_id>/', views.retirer_du_panier, name='retirer_du_panier'),
+    path('vider_panier/', views.vider_panier, name='vider_panier'),
+    path('valider_achat/', views.valider_achat, name='valider_achat'),
 ]
