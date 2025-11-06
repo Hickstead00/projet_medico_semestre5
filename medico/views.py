@@ -68,6 +68,16 @@ def nouveau_traitement(request,consultation_id):
             traitement = form.save(commit=False)
             traitement.consultation=consultation
             traitement.save()
+            # Si un objet spécial a été sélectionné, décrémenter le stock
+            if traitement.objet_special_id:
+                try:
+                    inv = InventoryItem.objects.select_for_update().get(item_id=traitement.objet_special_id)
+                except InventoryItem.DoesNotExist:
+                    inv = None
+                if inv and inv.quantite > 0:
+                    inv.quantite -= 1
+                    inv.save()
+            
         return HttpResponseRedirect(f"/medico/consultations/{consultation_id}")
     else:
         form= TraitementForm()
@@ -84,9 +94,24 @@ def modifier_traitement(request,traitement_id):
     traitement = get_object_or_404(Traitement,pk=traitement_id)
     id_consultation = traitement.consultation.id
     if request.method == "POST":
+        old_objet_id = traitement.objet_special_id
         form = TraitementForm(request.POST, instance=traitement)
         if form.is_valid():
-            form.save()
+            updated = form.save()
+            new_objet_id = updated.objet_special_id
+            # Ajuster le stock si l'objet spécial change
+            if old_objet_id != new_objet_id:
+                # restituer l'ancien si existait
+                if old_objet_id:
+                    inv_old, _ = InventoryItem.objects.get_or_create(item_id=old_objet_id, defaults={'quantite': 0})
+                    inv_old.quantite += 1
+                    inv_old.save()
+                # consommer le nouveau si existe
+                if new_objet_id:
+                    inv_new, _ = InventoryItem.objects.get_or_create(item_id=new_objet_id, defaults={'quantite': 0})
+                    if inv_new.quantite > 0:
+                        inv_new.quantite -= 1
+                        inv_new.save()
         return HttpResponseRedirect(f"/medico/consultations/{id_consultation}")
     else:
         form = TraitementForm(instance=traitement)
@@ -209,8 +234,20 @@ def valider_achat(request):
         return redirect('panier')
     
     total = sum(item['prix'] * item['quantite'] for item in panier.values())
-    
+    # Persister en inventaire global (pas de notion d'utilisateur ici)
+    for item_id_str, item in panier.items():
+        try:
+            item_id = int(item_id_str)
+        except (TypeError, ValueError):
+            continue
+        quantite = int(item.get('quantite', 0))
+        if quantite <= 0:
+            continue
+        inv, _ = InventoryItem.objects.get_or_create(item_id=item_id, defaults={'quantite': 0})
+        inv.quantite += quantite
+        inv.save()
+
     del request.session['panier']
-    
+
     return render(request, 'medico/achat_confirme.html', {'total': total})
 

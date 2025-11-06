@@ -20,6 +20,8 @@ class Traitement(models.Model):
     dosage = models.IntegerField(null=False)
     instructions_utilisations = models.TextField(null=False)
     consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE)
+    # Objet optionnel provenant du Black-Market affecté à ce traitement
+    objet_special = models.ForeignKey('BlackMarketItem', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"Nom du medicament : {self.medicament}, Nombre de boite : {self.quantite}, Contenant : {self.contenant}, Durée du traitement : {self.duree_en_jours}, Dosage : {self.dosage}, Instructions d'utilisation : {self.instructions_utilisations}, Consultation : {self.consultation}"
@@ -32,6 +34,11 @@ class BlackMarketItem(models.Model):
     description = models.TextField(null=False)
 
     def __str__(self):
-        return f"Nom : {self.nom_medicament}, Prix : {self.prix}, Description : {self.description}"
+        return f"Nom : {self.nom_item}, Prix : {self.prix}, Description : {self.description}"
 
+class InventoryItem(models.Model):
+    item = models.OneToOneField(BlackMarketItem, on_delete=models.CASCADE, related_name='inventory')
+    quantite = models.IntegerField(default=0)
 
+    def __str__(self):
+        return f"Stock {self.item.nom_item} : {self.quantite}"
