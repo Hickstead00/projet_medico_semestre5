@@ -18,14 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
             index++;
             setTimeout(showLine, 700);
         } else {
-            setTimeout(() => {
-                try {
-                    sessionStorage.setItem('blackmarket_animation_played', '1');
-                } catch (e) {
-                }
-                terminal.style.display = "none";
-                content.style.display = "block";
-            }, 400);
+setTimeout(() => {
+    try {
+        sessionStorage.setItem('blackmarket_animation_played', '1');
+    } catch (e) {
+        console.error("Erreur sessionStorage:", e);
+    }
+    terminal.style.display = "none";
+    
+    // Au lieu de content.style.display = "block";
+    content.removeAttribute('style');
+    // OU forcez avec !important via une classe
+    content.classList.add('show-content');
+    
+    console.log("Content display:", window.getComputedStyle(content).display);
+}, 400);
         }
     }
 

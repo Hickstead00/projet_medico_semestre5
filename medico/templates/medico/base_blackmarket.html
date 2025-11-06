@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Medico — Black Market{% endblock %}</title>
         {% bootstrap_css %}
+        {% block scripts %}{% endblock %}
 
         <style>
 
@@ -133,7 +134,6 @@
         </nav>
 
         <div class="container">
-                {% block scripts %}{% endblock %}
                 {% block content %}{% endblock %}
         </div>
 
